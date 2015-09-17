@@ -32,7 +32,7 @@
       <section>
         <div id="title">
           <h1>Vanilla</h1>
-          <p>A Opentresty Web Framework For PHPER</p>
+          <p>An Opentresty Web Framework For PHPER</p>
           <hr>
           <span class="credits left">Project maintained by <a href="https://github.com/idevz">idevz</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
@@ -44,13 +44,30 @@
 <h3>
 <a id="one-bouquet-of-vanilla" class="anchor" href="#one-bouquet-of-vanilla" aria-hidden="true"><span class="octicon octicon-link"></span></a>One bouquet of vanilla</h3>
 
-<p><em>what's vanilla? It's A Opentresty Web Framework For PHPER.</em></p>
+<p><em>Vanilla is An Opentresty Web Framework For PHPER.</em></p>
 
-<p><em>Just like a vanilla</em></p>
+<p><a href="http://idevz.github.io/vanilla/"><img border="0" src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/ca65fa784406a36ba4fc41d14e21661e_1364_1494.png" alt="LuaRocks" width="150px"></a></p>
 
-<blockquote>
-<p>content_by_lua 'require(\"pub.index\")';</p>
-</blockquote>
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>install</h2>
+
+<pre><code>yum install lua-devel luarocks
+luarocks install https://raw.githubusercontent.com/idevz/vanilla/master/vanilla-0.0.1-1.rockspec
+</code></pre>
+
+<h2>
+<a id="set" class="anchor" href="#set" aria-hidden="true"><span class="octicon octicon-link"></span></a>set</h2>
+
+<pre><code>content_by_lua_file ./pub/index.lua;
+</code></pre>
+
+<h2>
+<a id="useage" class="anchor" href="#useage" aria-hidden="true"><span class="octicon octicon-link"></span></a>useage</h2>
+
+<pre><code>vanilla new app
+cd app
+vanilla start
+</code></pre>
       </section>
 
     </div>
