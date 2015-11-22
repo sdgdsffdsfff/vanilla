@@ -16,7 +16,7 @@
     <header>
       <div class="container">
         <h1>Vanilla</h1>
-        <h2>An Opentresty Web Framework For PHPER</h2>
+        <h2>A MVC web framework for Lua powered by OpenResty</h2>
 
         <section id="downloads">
           <a href="https://github.com/idevz/vanilla/zipball/master" class="btn">Download as .zip</a>
@@ -33,7 +33,7 @@
 
 <p><em>香草/Vanilla是一个基于Openresty实现的高性能Web应用开发框架.</em></p>
 
-<p><a href="http://idevz.github.io/vanilla/"><img border="0" src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/120d7329960e19cf073f264751e8d959_2043_2241.png" alt="LuaRocks" width="150px"></a></p>
+<p><img src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/120d7329960e19cf073f264751e8d959_2043_2241.png" alt="Vanilla"></p>
 
 <h3>
 <a id="安装说明" class="anchor" href="#%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装说明</h3>
@@ -82,8 +82,8 @@ luarocks install vanilla
 <li><em>尤其MacOSX10.9后brew默认安装的Lua是5.2版本，而Openresty必须源码安装5.1</em></li>
 </ol>
 
-<h3>
-<a id="使用" class="anchor" href="#%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用</h3>
+<h2>
+<a id="使用" class="anchor" href="#%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用</h2>
 
 <h5>
 <a id="应用代码骨架生成及服务启动" class="anchor" href="#%E5%BA%94%E7%94%A8%E4%BB%A3%E7%A0%81%E9%AA%A8%E6%9E%B6%E7%94%9F%E6%88%90%E5%8F%8A%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a><em>应用代码骨架生成及服务启动</em>
@@ -169,14 +169,14 @@ return IndexController
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;body&gt;
-  &lt;img src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/ca65fa784406a36ba4fc41d14e21661e_1364_1494.png"&gt;
+  &lt;img src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/120d7329960e19cf073f264751e8d959_2043_2241.png"&gt;
   &lt;h1&gt;&lt;a href = 'https://github.com/idevz/vanilla'&gt;{{vanilla}}&lt;/a&gt;&lt;/h1&gt;&lt;h5&gt;{{zhoujing}}&lt;/h5&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
 
-<h3>
-<a id="为什么需要vanilla" class="anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81vanilla" aria-hidden="true"><span class="octicon octicon-link"></span></a>为什么需要Vanilla</h3>
+<h2>
+<a id="为什么需要vanilla" class="anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81vanilla" aria-hidden="true"><span class="octicon octicon-link"></span></a>为什么需要Vanilla</h2>
 
 <p>回答这个问题，我们只需要看清楚Openresty和Vanilla各自做了什么即可。</p>
 
@@ -185,7 +185,7 @@ return IndexController
 </h5>
 
 <ul>
-<li>提供了处理HTTP请求的全套整体解决方案，是一个强大的平台</li>
+<li>提供了处理HTTP请求的全套整体解决方案</li>
 <li>给Nginx模块开发开辟了一条全新的道路，我们可以使用Lua来处理Web请求</li>
 <li>形成了一个日趋完善的生态，这个生态涵盖了高性能Web服务方方面面 </li>
 </ul>
@@ -206,9 +206,31 @@ return IndexController
 <li>整合、封装了一系列Web开发常用的工具集、类库（cookie、应用防火墙等）</li>
 <li>功能使用方便易于扩展</li>
 </ul>
+
+<h2>
+<a id="社区组织" class="anchor" href="#%E7%A4%BE%E5%8C%BA%E7%BB%84%E7%BB%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>社区组织</h2>
+
+<h5>
+<a id="qq群微信公众号" class="anchor" href="#qq%E7%BE%A4%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a><em>QQ群&amp;&amp;微信公众号</em>
+</h5>
+
+<p><img src="vanilla_QQ.png" alt="Vanilla-OpenResty开发QQ群">
+<img src="vanilla_openresty.png" alt="Vanilla-OpenResty开发公众号"></p>
+
+<p><a href="http://shang.qq.com/wpa/qunwpa?idkey=673157ee0f0207ce2fb305d15999225c5aa967e88913dfd651a8cf59e18fd459"><img src="http://pub.idqqimg.com/wpa/images/group.png" alt="QQ"></a></p>
       </section>
     </div>
 
-    
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-28150381-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
