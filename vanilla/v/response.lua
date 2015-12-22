@@ -1,13 +1,15 @@
+-- vanilla
+local Registry = require('vanilla.v.registry'):new('sys')
 -- perf
 local setmetatable = setmetatable
-
 
 local Response = {}
 Response.__index = Response
 
 function Response:new()
+    local app_version = Registry['app_version']
     ngx.header['Content_type'] = 'text/html; charset=UTF-8'
-    ngx.header['Power_By'] = 'Vanilla-' .. ngx.app_version
+    ngx.header['Power_By'] = 'Vanilla-' .. app_version
     local instance = {
         status = 200,
         headers = {},
@@ -20,7 +22,11 @@ function Response:new()
 end
 
 function Response:appendBody(append_body)
-    if append_body ~= nil then self.append_body = append_body end
+    if append_body ~= nil and type(append_body) == 'string' then
+        self.append_body = append_body
+    else
+        error({ code = 105, msg = {AppendBodyErr = 'append_body must be a not empty string.'}})
+    end
 end
 
 function Response:clearBody()
@@ -42,7 +48,11 @@ function Response:getHeader()
 end
 
 function Response:prependBody(prepend_body)
-    if prepend_body ~= nil then self.prepend_body = prepend_body end
+    if prepend_body ~= nil and type(prepend_body) == 'string' then
+        self.prepend_body = prepend_body
+    else
+        error({ code = 105, msg = {PrependBodyErr = 'prepend_body must be a not empty string.'}})
+    end
 end
 
 function Response:response()

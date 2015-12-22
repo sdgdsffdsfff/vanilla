@@ -1,9 +1,9 @@
 -- dep
-local ansicolors = require 'ansicolors'
+local ansicolors = require 'vanilla.v.libs.ansicolors'
 
 -- vanilla
 local va_conf = require 'vanilla.sys.config'
-local helpers = require 'vanilla.v.libs.utils'
+local utils = require 'vanilla.v.libs.utils'
 
 local gitignore = [[
 # Vanilla
@@ -155,11 +155,11 @@ local admin_plugin_tpl = [[
 local AdminPlugin = require('vanilla.v.plugin'):new()
 
 function AdminPlugin:routerStartup(request, response)
-    pp('<pre>')
+    print_r('<pre>')
     if request.method == 'GET' then
-        pp('-----------' .. pps(request.headers) .. '----------')
+        print_r('-----------' .. sprint_r(request.headers) .. '----------')
     else
-        pp(request.headers)
+        print_r(request.headers)
     end
 end
 
@@ -186,7 +186,7 @@ local bootstrap = [[
 local Bootstrap = require('vanilla.v.bootstrap'):new(dispatcher)
 
 function Bootstrap:initWaf()
-    require 'vanilla.sys.waf.acc'
+    require('vanilla.sys.waf.acc'):check()
 end
 
 function Bootstrap:initErrorHandle()
@@ -209,11 +209,11 @@ end
 
 function Bootstrap:boot_list()
     return {
-        Bootstrap.initWaf,
-        Bootstrap.initErrorHandle,
-        Bootstrap.initRoute,
-        Bootstrap.initView,
-        Bootstrap.initPlugin,
+        -- Bootstrap.initWaf,
+        -- Bootstrap.initErrorHandle,
+        -- Bootstrap.initRoute,
+        -- Bootstrap.initView,
+        -- Bootstrap.initPlugin,
     }
 end
 
@@ -357,6 +357,7 @@ local waf_conf_regs_whiteurl = [[
 
 
 local nginx_config_tpl = [[
+# user www www;
 pid ]] .. va_conf.app_dirs.tmp .. [[/{{VA_ENV}}-nginx.pid;
 
 # This number should be at maxium the number of CPU on the server
@@ -370,6 +371,7 @@ events {
 http {
     # use sendfile
     sendfile on;
+    # include {{NGX_PATH}}/conf/mime.types;
 
     # Va initialization
     {{LUA_PACKAGE_PATH}}
@@ -554,23 +556,23 @@ VaApplication.files = {
 }
 
 function VaApplication.new(name)
-    print(ansicolors("Creating app %{green}" .. name .. "%{reset}..."))
-
+    print(ansicolors("Creating app %{blue}" .. name .. "%{reset}..."))
+    
     VaApplication.files['config/application.lua'] = string.gsub(application_conf, "{{APP_NAME}}", name)
     VaApplication.create_files(name)
 end
 
 function VaApplication.create_files(parent)
     for file_path, file_content in pairs(VaApplication.files) do
-        -- ensure containing directory exists
-        local full_file_path = parent .. "/" .. file_path
-        helpers.mkdirs(full_file_path)
 
-        -- create file
+        local full_file_path = parent .. "/" .. file_path
+        local full_file_dirname = utils.dirname(full_file_path)
+        os.execute("mkdir -p " .. full_file_dirname .. " > /dev/null")
+
         local fw = io.open(full_file_path, "w")
         fw:write(file_content)
         fw:close()
-        print(ansicolors("  %{green}created file%{reset} " .. full_file_path))
+        print(ansicolors("  %{blue}created file%{reset} " .. full_file_path))
     end
 end
 
